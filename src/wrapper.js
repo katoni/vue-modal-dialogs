@@ -131,20 +131,22 @@ export default {
     /** Remove a dialog component from the wrapper */
     remove (id) {
       this.$delete(this.dialogs, id)
-    },
-
-    hasWrapper (name) {
-      return wrappers.hasOwnProperty(name)
-    },
-
-    unregisterWrapper (name) {
-      if (!this.hasWrapper(name)) {
-        return
-      }
-
-      wrappers[name].$delete()
-
-      delete wrappers[name]
     }
+  }
+}
+
+export const Wormhole = {
+  hasWrapper (name) {
+    return wrappers.hasOwnProperty(name)
+  },
+
+  unregisterWrapper (name) {
+    if (!this.hasWrapper(name)) {
+      return
+    }
+
+    wrappers[name].$delete()
+
+    delete wrappers[name]
   }
 }
